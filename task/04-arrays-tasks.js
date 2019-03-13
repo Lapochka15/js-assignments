@@ -350,7 +350,7 @@ function sortDigitNamesByNumericOrder(arr) {
  */
 function getItemsSum(arr) {
    let sum = 0;
-   forEach(function(element) => sum += element)
+   forEach(function(element){return sum += element})
 }
  
 /** 
