@@ -223,7 +223,7 @@ function getRectangleString(width, height) {
  *
  */
 function encodeToRot13(str) {
-  	res = [];
+    let res = [];
     str.split('').forEach(function(element) {
   		((element.charCodeAt(0) < 91 && element.charCodeAt(0) > 64 )
          || (element.charCodeAt(0) < 123 && element.charCodeAt(0) > 96)) 
@@ -253,7 +253,7 @@ function encodeToRot13(str) {
  *   isString(new String('test')) => true
  */
 function isString(value) {
-    throw new Error('Not implemented');
+    return Object.prototype.toString.call(x) === "[object String]"
 }
 
 
