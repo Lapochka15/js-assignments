@@ -130,7 +130,7 @@ function repeatString(value, count) {
  *   'ABABAB','BA' => 'ABAB'
  */
 function removeFirstOccurrences(str, value) {
-    throw new Error('Not implemented');
+    return str.replace(value, "");
 }
 
 /**
@@ -145,7 +145,7 @@ function removeFirstOccurrences(str, value) {
  *   '<a>' => 'a'
  */
 function unbracketTag(str) {
-    throw new Error('Not implemented');
+    return str.substring(1, str.length - 1);
 }
 
 
@@ -160,7 +160,7 @@ function unbracketTag(str) {
  *  'abcdefghijklmnopqrstuvwxyz' => 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
  */
 function convertToUpperCase(str) {
-    throw new Error('Not implemented');
+    return str.toUpperCase();
 }
 
 /**
@@ -174,7 +174,7 @@ function convertToUpperCase(str) {
  *   'info@gmail.com' => ['info@gmail.com']
  */
 function extractEmails(str) {
-    throw new Error('Not implemented');
+    return str.split(';');
 }
 
 /**
@@ -201,7 +201,9 @@ function extractEmails(str) {
  *
  */
 function getRectangleString(width, height) {
-    throw new Error('Not implemented');
+    return String.fromCharCode(9484) + '─'.repeat( width - 2 ) + String.fromCharCode(9488) + "\n"+ 
+        ('│'  + ' '.repeat( width - 2 ) + '│' + '\n').repeat(height - 2) + 
+        String.fromCharCode(9492)  + '─'.repeat( width - 2 ) + String.fromCharCode(9496) + "\n";
 }
 
 
@@ -221,7 +223,20 @@ function getRectangleString(width, height) {
  *
  */
 function encodeToRot13(str) {
-    throw new Error('Not implemented');
+    res = [];
+    str.split('').forEach(function(element) {
+  		((element.charCodeAt(0) < 91 && element.charCodeAt(0) > 64 )
+         || (element.charCodeAt(0) < 123 && element.charCodeAt(0) > 96)) 
+        ?
+      		((element < 91 )
+          	? 
+             		res.push(String.fromCharCode((element.charCodeAt(0) - 65 + 13)% 26 + 65)) :
+        			res.push(String.fromCharCode((element.charCodeAt(0) - 97 + 13)% 26 + 97))
+        	)
+        : 
+        res.push(element) ;
+	});
+    return res.join('');
 }
 
 /**
