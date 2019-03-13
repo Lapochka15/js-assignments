@@ -23,7 +23,7 @@
  *    [0, 1, 2, 3, 4, 5], 5    => 5
  */
 function findElement(arr, value) {
-   return arr.findIndex(value);
+   return arr.findIndex(function(x){return x === value});
 }
 
 /**
@@ -89,7 +89,7 @@ function getArrayOfPositives(arr) {
  *    [ 'cat, 'dog', 'raccon' ] => [ 'cat', 'dog', 'racoon' ]
  */
 function getArrayOfStrings(arr) {
-   return null;
+   return arr.filter(function(x) => return Object.prototype.toString.call(x) === "[object String]");
 }
 
 /**
