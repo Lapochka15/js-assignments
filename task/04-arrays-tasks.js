@@ -212,7 +212,7 @@ function getTail(arr, n) {
  *    +'30,31,32,33,34'
  */
 function toCsvText(arr) {
-   return Array.from(arr, x => x.join(',')).join('\n+');
+   return Array.from(arr, x => x.join(',')).join('\n');
 }
 
 /**
@@ -261,7 +261,7 @@ function getMovingSum(arr) {
  * [ "a" ] => []
  */
 function getSecondItems(arr) {
-   return (arr.filter((x, k) => k % 2 ===0 ));
+   return (arr.filter((x, k) => k % 2 === 1 ));
 }
 
 
@@ -298,7 +298,7 @@ function propagateItemsByPositionIndex(arr) {
  *   [ 10, 10, 10, 10 ] => [ 10, 10, 10 ]
  */
 function get3TopItems(arr) {
-   throw new Error('Not implemented');
+   return arr.sort((a,b) => a - b).slice(arr.length - 3 <= 0? 0 :arr.length - 3 ).reverse();
 }
  
  
