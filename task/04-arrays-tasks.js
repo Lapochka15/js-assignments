@@ -246,7 +246,7 @@ function toArrayOfSquares(arr) {
  *   [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ] => [ 1, 3, 6, 10, 15, 21, 28, 36, 45, 55 ]
  */
 function getMovingSum(arr) {
-   return (Array.from(arr, (x,k) =>  (k > 0 ? arr[k-1]: 0) + x);
+   return (Array.from(arr, (x,k) =>  (k > 0 ? arr[k-1]: 0) + x));
 }
 
 /**
@@ -280,7 +280,7 @@ function getSecondItems(arr) {
  *  [ 1,2,3,4,5 ] => [ 1, 2,2, 3,3,3, 4,4,4,4, 5,5,5,5,5 ]
  */
 function propagateItemsByPositionIndex(arr) {
-   throw new Error('Not implemented');
+ throw new Error('Not implemented');
 }
 
 
