@@ -89,7 +89,7 @@ function getArrayOfPositives(arr) {
  *    [ 'cat, 'dog', 'raccon' ] => [ 'cat', 'dog', 'racoon' ]
  */
 function getArrayOfStrings(arr) {
-   return arr.filter(function(x) => return Object.prototype.toString.call(x) === "[object String]");
+   return arr.filter(function(x) {return Object.prototype.toString.call(x) === "[object String]"});
 }
 
 /**
@@ -261,7 +261,7 @@ function getMovingSum(arr) {
  * [ "a" ] => []
  */
 function getSecondItems(arr) {
-   throw new Error('Not implemented');
+   return (arr.filter((x, k) => k % 2 ===0 ));
 }
 
 
