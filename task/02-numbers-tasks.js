@@ -38,7 +38,7 @@ function getRectangleArea(width, height) {
  *   0    => 0
  */
 function getCicleCircumference(radius) {
-    return math.pi * radius*radius;
+    return Math.PI * radius*radius;
 }
 
 /**
@@ -181,7 +181,7 @@ function getParallelipidedDiagonal(a,b,c) {
  *   1678, 3  => 2000
  */
 function roundToPowerOfTen(num, pow) {
-    return (num % Math.pow(10, pow)) * Math.pow(10, pow);
+    return Math.trunc(num / Math.pow(10, pow)) * Math.pow(10, pow);
 }
 
 /**
@@ -221,7 +221,7 @@ function isPrime(n) {
  *   toNumber(new Number(42), 0) => 42
  */
 function toNumber(value, def) {
-    return parseInt(value) === 'NaN'? def: parseInt(value);
+    return isNaN(parseInt(value)) ? def: parseInt(value);
 }
 
 module.exports = {
