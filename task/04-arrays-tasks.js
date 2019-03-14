@@ -349,8 +349,8 @@ function sortDigitNamesByNumericOrder(arr) {
  *   [ 1, 10, 100, 1000 ]  => 1111
  */
 function getItemsSum(arr) {
-   let sum = 0;
-   forEach(function(element){return sum += element})
+   const reducer = (accumulator, currentValue) => accumulator + currentValue;
+   return arr.reduce(reducer);
 }
  
 /** 
@@ -366,7 +366,7 @@ function getItemsSum(arr) {
  *  [ null, undefined, NaN, false, 0, '' ]  => 6
  */
 function getFalsyValuesCount(arr) {
-   throw new Error('Not implemented');
+   return arr.filter(function(x){return x === 0 || x === '' || isNaN(x)|| x === false || x === null || x === undefined}).length;
 }
 
 /**
@@ -399,7 +399,7 @@ function findAllOccurences(arr, item) {
  *    ['rock', 'paper', 'scissors']     => 'rock,paper,scissors'
  */
 function toStringList(arr) {
-   throw new Error('Not implemented');
+   return arr.join();
 }
 
 
@@ -467,7 +467,7 @@ function getIdentityMatrix(n) {
  *     3, 3   => [ 3 ]
  */
 function getIntervalArray(start, end) {
-   throw new Error('Not implemented');
+   return Array.from({ length: end - start +1}, (v, k) => k + start); 
 }
 
 /**
@@ -482,7 +482,8 @@ function getIntervalArray(start, end) {
  *   [ 1, 1, 2, 2, 3, 3, 4, 4] => [ 1, 2, 3, 4]
  */
 function distinct(arr) {
-   throw new Error('Not implemented');
+   const distinct = (value, index, self) => {return self.indexOf(value) === index;}
+   return arr.filter(distinct);
 }
 
 /**
