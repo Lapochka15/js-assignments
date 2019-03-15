@@ -326,7 +326,7 @@ function isBracketsBalanced(str) {
         if (chr === '[' || chr === '(' || chr === '{' || chr === '<')
             arr.push(chr);
         else{
-            if (arr.length != 0) &&(arr[arr.length - 1] === brackets[chr]){
+            if ((arr.length != 0) &&(arr[arr.length - 1] === brackets[chr])){
                 arr.pop();    
             }else
                 return false;
