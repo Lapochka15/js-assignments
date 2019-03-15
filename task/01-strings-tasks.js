@@ -55,7 +55,7 @@ function getStringLength(value) {
  *   'Chuck','Norris'  => 'Hello, Chuck Norris!'
  */
 function getStringFromTemplate(firstName, lastName) {
-    return "Hello, {0} {1}!".format(firstName, lastName);
+    return `Hello, ${firstName} ${lastName}!`;
 }
 
 /**
