@@ -150,7 +150,7 @@ function doRectanglesOverlap(rect1, rect2) {
  *   
  */
 function isInsideCircle(circle, point) {
-    return Math.sqrt((circle.center.x - point.x)(circle.center.x - point.x) + (circle.center.y - point.y)(circle.center.y - point.y)) < circle.radius;
+    return Math.sqrt((circle.center.x - point.x)*(circle.center.x - point.x) + (circle.center.y - point.y)*(circle.center.y - point.y)) < circle.radius;
 }
 
 
@@ -200,7 +200,7 @@ function findFirstSingleChar(str) {
  *
  */
 function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
-    return `${ isStartIncluded ? '[': '(' }${a}, ${b}${isEndIncluded ? ']': ')'}`;
+    return `${ isStartIncluded ? '[': '(' }${a > b ? b: a}, ${b >= a ? b:a}${isEndIncluded ? ']': ')'}`;
 }
 
 
@@ -326,7 +326,7 @@ function isBracketsBalanced(str) {
         if (chr === '[' || chr === '(' || chr === '{' || chr === '<')
             arr.push(chr);
         else{
-            if (arr[arr.length - 1] === brackets[chr]){
+            if (arr.length != 0) &&(arr[arr.length - 1] === brackets[chr]){
                 arr.pop();    
             }else
                 return false;
