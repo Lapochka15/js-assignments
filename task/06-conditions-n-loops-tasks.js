@@ -166,7 +166,7 @@ function isInsideCircle(circle, point) {
  *   'entente' => null
  */
 function findFirstSingleChar(str) {
-    while (str !=== "")
+    while (str !== "")
     {
         let len = str.length;
         let chr = str[0];
@@ -200,7 +200,7 @@ function findFirstSingleChar(str) {
  *
  */
 function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
-    throw new Error('Not implemented');
+    return `${ isStartIncluded ? '[': '(' }${a}, ${b}${isEndIncluded ? ']': ')'
 }
 
 
@@ -217,7 +217,7 @@ function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
  * 'noon' => 'noon'
  */
 function reverseString(str) {
-    throw new Error('Not implemented');
+    return str.reverse();
 }
 
 
@@ -234,7 +234,7 @@ function reverseString(str) {
  *   34143 => 34143
  */
 function reverseInteger(num) {
-    throw new Error('Not implemented');
+    return parseInt(num.toString().reverse());
 }
 
 
@@ -278,7 +278,15 @@ function isCreditCardNumber(ccn) {
  *   165536 (1+6+5+5+3+6 = 26,  2+6 = 8) => 8
  */
 function getDigitalRoot(num) {
-    throw new Error('Not implemented');
+    var sum = function(n) {
+        let s = 0;
+        while (n !== 0){
+            s += n % 10;
+            n = Math.trunc(n / 10);
+        }
+  		return s;
+    }
+    return num % 10 === num ? num : getDigitalRoot(sum(num));
 }
 
 
