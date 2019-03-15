@@ -200,7 +200,7 @@ function findFirstSingleChar(str) {
  *
  */
 function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
-    return `${ isStartIncluded ? '[': '(' }${a}, ${b}${isEndIncluded ? ']': ')'
+    return `${ isStartIncluded ? '[': '(' }${a}, ${b}${isEndIncluded ? ']': ')'}`;
 }
 
 
@@ -312,9 +312,28 @@ function getDigitalRoot(num) {
  *   '{[(<{[]}>)]}' = true 
  */
 function isBracketsBalanced(str) {
-    throw new Error('Not implemented');
-}
+    const brackets = [];
+  	brackets['{'] = '}';
+    brackets['['] = ']';
+    brackets['<'] = '>';
+    brackets['('] = ')';
+    
+    if (str.length & 1 === 1)
+        return false;
+    let arr = [];
 
+    arr.forEach(function(chr){
+        if (chr === '[' || chr === '(' || chr === '{' || chr === '<')
+            arr.push(chr);
+        else{
+            if (arr[arr.length - 1] === brackets[chr]){
+                arr.pop();    
+            }else
+                return false;
+        }           
+    })
+     return arr.length === 0 ? true : false;
+}
 
 /**
  * Returns the human readable string of time period specified by the start and end time.
