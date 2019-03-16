@@ -38,7 +38,7 @@ function findElement(arr, value) {
  *    5 => [ 1, 3, 5, 7, 9 ]
  */
 function generateOdds(len) {
-   return Array.from({length : 5}, (v,k) => k *2 +1);
+   return Array.from({length : len}, (v,k) => k *2 +1);
 }
 
 
@@ -345,6 +345,8 @@ function sortDigitNamesByNumericOrder(arr) {
  *   [ 1, 10, 100, 1000 ]  => 1111
  */
 function getItemsSum(arr) {
+   if (arr.length === 0)
+      return 0;
    const reducer = (accumulator, currentValue) => accumulator + currentValue;
    return arr.reduce(reducer);
 }
@@ -362,6 +364,8 @@ function getItemsSum(arr) {
  *  [ null, undefined, NaN, false, 0, '' ]  => 6
  */
 function getFalsyValuesCount(arr) {
+  return arr.filter(function(x){return x == false}).length;
+
    return arr.filter(function(x){return x === 0 || x === '' || isNaN(x)|| x === false || x === null || x === undefined}).length;
 }
 
