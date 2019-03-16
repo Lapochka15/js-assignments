@@ -120,7 +120,7 @@ function getUpperCaseStrings(arr) {
    arr.forEach(function(str){
     res.push(str.toUpperCase())
    })
-  return res;
+  return arr.from(x => x.toUpperCase());
 }
 
 
