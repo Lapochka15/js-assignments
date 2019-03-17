@@ -26,7 +26,7 @@
  *
  */
 function getComposition(f,g) {
-    return f(g());
+     throw new Error('Not implemented');
 }
 
 
@@ -46,8 +46,17 @@ function getComposition(f,g) {
  *   power05(16) => 4
  *
  */
-function getPowerFunction(exponent) {
-    throw new Error('Not implemented');
+function getPowerFunction(exponent) {   
+    return function fibonacci() {
+        var fn1 = 1; 
+        var fn2 = 1; 
+        while (1){ 
+            var current = fn2; 
+            fn2 = fn1; 
+            fn1 = fn1 + current; 
+            yield current; 
+        } 
+    }
 }
 
 
