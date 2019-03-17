@@ -116,11 +116,8 @@ function removeFalsyValues(arr) {
  *    [ 'a', 'b', 'c', 'd', 'e', 'f', 'g' ]  => [ 'A', 'B', 'C', 'D', 'E', 'F', 'G' ]
  */
 function getUpperCaseStrings(arr) {
-   let res = [];
-   arr.forEach(function(str){
-    res.push(str.toUpperCase())
-   })
-  return arr.from(x => x.toUpperCase());
+
+  return Array.from((arr), x => x.toUpperCase());
 }
 
 
@@ -135,11 +132,9 @@ function getUpperCaseStrings(arr) {
  *    [ 'angular', 'react', 'ember' ] => [ 7, 5, 5 ]
  */
 function getStringsLength(arr) {
-      let res = [];
-   arr.forEach(function(str){
-    res.push(str.length)
-   })
-  return res;
+
+  return Array.from((arr), x => x.length);
+
 }
 
 /**
@@ -329,7 +324,9 @@ function getPositivesCount(arr) {
  *   [ 'one','one','one','zero' ]     => [ 'zero','one','one','one' ]
  */
 function sortDigitNamesByNumericOrder(arr) {
-   throw new Error('Not implemented');
+  	var num = {'zero' : 0, 'one' : 1, 'two' : 2, 'three' : 3, 'four' : 4, 'five' : 5,
+               'six' : 6, 'seven' : 7,  'eight' : 8, 'nine' : 9};
+  	return arr.sort(function(a,b) {return num[a] - num[b]});
 }
 
 /** 
