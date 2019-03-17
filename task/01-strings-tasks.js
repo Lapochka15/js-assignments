@@ -282,7 +282,9 @@ function isString(value) {
  *   'K♠' => 51
  */
 function getCardId(value) {
-    throw new Error('Not implemented');
+    var sum = {'♣' : 0, '♦' : 1, '♥' : 2, '♠' : 3};
+    var valueArr = {'A' : 0,'2' : 1,'3' : 2,'4' : 3, '5' : 4,'6' : 5,'7' : 6,'8' : 7,'9' : 8,'10': 9,'J': 10,'Q' : 11,'K' : 12}
+    return valueArr[value.substring(0, value.length - 1)] + sum[value[value.length - 1]] * 13 ;
 }
 
 
