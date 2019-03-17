@@ -217,7 +217,7 @@ function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
  * 'noon' => 'noon'
  */
 function reverseString(str) {
-    return str.reverse();
+   return str.split('').reverse().join('');
 }
 
 
@@ -234,7 +234,7 @@ function reverseString(str) {
  *   34143 => 34143
  */
 function reverseInteger(num) {
-    return parseInt(num.toString().reverse());
+    return parseInt(num.toString().split('').reverse().join(''));
 }
 
 
@@ -322,7 +322,7 @@ function isBracketsBalanced(str) {
         return false;
     let arr = [];
 
-    arr.forEach(function(chr){
+    str.split('').forEach(function(chr){
         if (chr === '[' || chr === '(' || chr === '{' || chr === '<')
             arr.push(chr);
         else{
