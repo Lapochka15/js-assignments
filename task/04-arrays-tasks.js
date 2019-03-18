@@ -102,7 +102,12 @@ function getArrayOfStrings(arr) {
  *    [ false, 0, NaN, '', undefined ]   => [ ]
  */
 function removeFalsyValues(arr) {
-   return arr.filter(function(x) {return x !== false && x !== '' && !isNaN(x) && x !== 0 && x !== null})
+    return arr.filter(function(elem) 
+          {return (elem !== '') && 
+           (elem !== false) &&
+           (!isNaN(elem) || (typeof elem === 'string')) &&
+           (elem !== 0) &&
+           (elem !== undefined)});
 }
 
 /**
@@ -361,9 +366,11 @@ function getItemsSum(arr) {
  *  [ null, undefined, NaN, false, 0, '' ]  => 6
  */
 function getFalsyValuesCount(arr) {
-  return arr.filter(function(x){return x == false}).length;
-
-   return arr.filter(function(x){return x === 0 || x === '' || isNaN(x)|| x === false || x === null || x === undefined}).length;
+  return arr.filter(function(elem)
+                    {return !((elem !== '') && (elem !== null) &&
+                             (elem !== false) && 
+                             (!isNaN(elem) || (typeof elem === 'string')) 
+                             && (elem !== 0) && (elem !== undefined))}).length;
 }
 
 /**
@@ -450,7 +457,9 @@ function sortCitiesArray(arr) {
  *           [0,0,0,0,1]]   
  */
 function getIdentityMatrix(n) {
-   throw new Error('Not implemented');
+   return  Array.from(
+     		(('1'+'0'.repeat(n)).repeat(n-1) + '1')
+     		.match(new RegExp('.{1,' + n + '}', 'g')),x => x.split(''));
 }
 
 /**
