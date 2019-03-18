@@ -276,7 +276,10 @@ function getSecondItems(arr) {
  *  [ 1,2,3,4,5 ] => [ 1, 2,2, 3,3,3, 4,4,4,4, 5,5,5,5,5 ]
  */
 function propagateItemsByPositionIndex(arr) {
- throw new Error('Not implemented');
+  var t = Array.from(arr, (elem, k) => Array(k + 1).fill(elem));
+  return t.reduce(function(flat, current) {
+			return flat.concat(current);
+		}, []);
 }
 
 
@@ -582,7 +585,7 @@ function getElementByIndexes(arr, indexes) {
  * 
  */
 function swapHeadAndTail(arr) {
-    return arr.slice(Math.trunc(arr.length / 2) + 1 )
+    return arr.slice(Math.round(arr.length / 2) )
       .concat(((arr.length % 2 === 1)?[arr[Math.trunc(arr.length / 2)]]:[])
       .concat(arr.slice(0, Math.trunc(arr.length / 2) )));
 }
