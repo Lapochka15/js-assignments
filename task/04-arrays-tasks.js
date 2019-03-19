@@ -242,7 +242,8 @@ function toArrayOfSquares(arr) {
  *   [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ] => [ 1, 3, 6, 10, 15, 21, 28, 36, 45, 55 ]
  */
 function getMovingSum(arr) {
-   return (Array.from(arr, (x,k) =>  (k > 0 ? arr[k-1]: 0) + x));
+   let prev = 0;
+   return (arr.map(elem => prev += elem));
 }
 
 /**
@@ -315,7 +316,7 @@ function get3TopItems(arr) {
  *   [ 1, '2' ] => 1
  */
 function getPositivesCount(arr) {
-   return arr.filter(x => x > 0).length;
+   return arr.filter(x => x > 0 && typeof x !== "string").length;
 }
  
 /** 
@@ -438,7 +439,7 @@ function toStringList(arr) {
  *      { country: 'Russia',  city: 'Saint Petersburg' }
  */
 function sortCitiesArray(arr) {
-   throw new Error('Not implemented');
+   return arr.sort((a, b) => (a.country == b.country)? a.city.localeCompare(b.city) : a.country.localeCompare(b.country));
 }
 
 /**
@@ -562,7 +563,10 @@ function selectMany(arr, childrenSelector) {
  *   [[[ 1, 2, 3]]], [ 0, 0, 1 ]      => 2        (arr[0][0][1])
  */
 function getElementByIndexes(arr, indexes) {
-    throw new Error('Not implemented');
+   indexes.map((ind) => {
+      arr = arr[ind];
+  });
+  return arr;
 }
 
 
