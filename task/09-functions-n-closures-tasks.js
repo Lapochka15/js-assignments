@@ -26,7 +26,7 @@
  *
  */
 function getComposition(f,g) {
-     throw new Error('Not implemented');
+     return x => f(g(x));
 }
 
 
@@ -47,17 +47,7 @@ function getComposition(f,g) {
  *
  */
 function getPowerFunction(exponent) {  
-    throw new Error('Not implemented');
-    /*return function fibonacci() {
-        var fn1 = 1; 
-        var fn2 = 1; 
-        while (1){ 
-            var current = fn2; 
-            fn2 = fn1; 
-            fn1 = fn1 + current; 
-            yield current; 
-        } 
-    }*/
+      return x => Math.pow(x, exponent);
 }
 
 
@@ -181,7 +171,7 @@ function partialUsingArguments(fn) {
  *   getId10() => 11
  */
 function getIdGeneratorFunction(startFrom) {
-    throw new Error('Not implemented');
+    return () => startFrom++;
 }
 
 
