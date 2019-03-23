@@ -386,8 +386,9 @@ function timespanToHumanString(startDate, endDate) {
  *    365, 10 => '365'
  */
 function toNaryString(num, n) {
-    throw new Error('Not implemented');
+    return num.toString(n);
 }
+
 
 
 /**
@@ -426,8 +427,24 @@ function getCommonDirectoryPath(pathes) {
  *
  */
 function getMatrixProduct(m1, m2) {
-    throw new Error('Not implemented');
+    let rowsM1 = m1.length, colsM1 = m1[0].length;
+    let rowsM2 = m2.length, colsM2 = m2[0].length;
+    let m3 = [];
+
+    if (colsM1 != rowsM2) 
+	    return false;
+    for (let i = 0; i < rowsM1; i++) 
+	    m3[i] = [];
+    for (let k = 0; k < colsM2; k++) { 
+	    for (let i = 0; i < rowsM1; i++) { 
+		    let temp = 0;          
+		    for (let j = 0; j < rowsM2; j++) 
+			    temp += m1[i][j] * m2[j][k];
+          	    m3[i][k] = temp;
+      	     }
+     } return m3;
 }
+
 
 
 /**
